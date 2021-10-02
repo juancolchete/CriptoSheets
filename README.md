@@ -1,2 +1,2 @@
 # CriptoSheets
-This repository aims to make easy follow your criptocurrencies investiments
+This repository aims to make easy follow your cryptocurrencies investiments
