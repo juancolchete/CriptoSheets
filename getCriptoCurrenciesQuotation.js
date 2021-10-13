@@ -12,7 +12,6 @@ function getCriptoCurrenciesQuotation() {
   var response = UrlFetchApp.fetch(url,options);
   responseJSON = JSON.parse(response)
   
-  var criptoPrices = []
   for (i=0; i < tokensArray.length;i++){
     SpreadsheetApp.getActiveSpreadsheet().getSheetByName("CriptoValue").getRange(3,i+2).setValue(responseJSON.data[tokensArray[i]].quote.USD.price);
   }
