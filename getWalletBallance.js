@@ -15,7 +15,7 @@ function getWalletBalance() {
       for(i=2;i<=lastColumn;i++)
       {
         tokenAddress = activeSpreadsheet.getSheetByName("CriptoAmount").getRange(1,i).getValue();
-        if(tokenAddress != 'BNB' && tokenAddress != 'NA'){
+        if(tokenAddress != 'BNB' && tokenAddress != '0x5373fde83045baa55620478048389e504edad339' && tokenAddress != 'NA'){
           var url = `https://api.bscscan.com/api?module=${module}&action=${action}&contractaddress=${tokenAddress}&address=${address}&tag=${tag}&apikey=${apiKey}`
           var response = UrlFetchApp.fetch(url);
           responseJSON = JSON.parse(response);
@@ -25,6 +25,11 @@ function getWalletBalance() {
           var response = UrlFetchApp.fetch(url);
           responseJSON = JSON.parse(response);
           activeSpreadsheet.getSheetByName("CriptoAmount").getRange(j+startPoint,i).setValue(parseInt(responseJSON.result) / 10 ** 18);
+        }else if(tokenAddress == '0x5373fde83045baa55620478048389e504edad339'){
+          var url = `https://api.bscscan.com/api?module=${module}&action=${action}&contractaddress=${tokenAddress}&address=${address}&tag=${tag}&apikey=${apiKey}`
+          var response = UrlFetchApp.fetch(url);
+          responseJSON = JSON.parse(response);
+          activeSpreadsheet.getSheetByName("CriptoAmount").getRange(j+startPoint,i).setValue(parseInt(responseJSON.result) / 10 ** 9);
         }else if(tokenAddress == 'NA'){
            activeSpreadsheet.getSheetByName("CriptoAmount").getRange(j+startPoint,i).setValue(0);
         }
