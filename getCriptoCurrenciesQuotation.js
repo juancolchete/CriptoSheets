@@ -37,12 +37,12 @@ function getTokenQuotation(tokensCoinMarketCap,tokensPancakeSwap){
   getTokenQuotationPancakeSwap(tokensPancakeSwap);
 }
 function getTokenQuotationCoinMarketCap(tokensCoinMarketCap){
-  let url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?'
+  let url = config.urlBaseCMC+'/v1/cryptocurrency/quotes/latest?'
     + 'id='+tokensCoinMarketCap
   let options = {
      "method" : "get",
      "headers" : {
-       "X-CMC_PRO_API_KEY" : "YOUR_API_KEY"
+       "X-CMC_PRO_API_KEY" : config.apiKeyCMC
      }
   };
   
