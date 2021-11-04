@@ -3,6 +3,7 @@ function createMenu() {
    .addItem("Get quotation", "getQuotation")
    .addItem("Get wallet balance ", "getBalance")
    .addItem("Get graphic ", "getGraphic")
+   .addItem("Get earnings ", "getEarningsData")
    .addToUi();
 }
 
@@ -15,4 +16,7 @@ function getBalance(){
 }
 function getGraphic(){
  generateGraphic()
+}
+function getEarningsData(){
+  getEarnings()
 }
