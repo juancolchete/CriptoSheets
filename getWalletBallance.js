@@ -1,5 +1,5 @@
 function getWalletBalance() {
-    tokensArray = getTokens();
+    tokensArray = getTokensId();
     module = 'account';
     action = 'tokenbalance';
     tag = 'latest';
